@@ -1,17 +1,21 @@
-import { Locator, Page } from '@playwright/test';
-import { OnLoadLocators, Locators, onLoadLocators, locators } from './login.locators';
-import { PageBase } from '../shared/page';
-
+import { Page } from '@playwright/test';
+import { PageBase } from '../shared/page.base';
+import {
+    Locators,
+    locators,
+    OnLoadLocators,
+    onLoadLocators,
+} from './login.locators';
 
 export class LoginPage extends PageBase {
-    onLoadLocators: OnLoadLocators;
-    locators: Locators;
+    readonly url = './vue-element-admin/#/login';
+    readonly onLoadLocators: OnLoadLocators;
+    readonly locators: Locators;
 
-
-    constructor(page: Page, url = '/') {
-    super(page, url);
-    this.locators = locators(page);
-    this.onLoadLocators = onLoadLocators(page);
+    constructor(page: Page) {
+        super(page);
+        this.locators = locators(page);
+        this.onLoadLocators = onLoadLocators(page);
     }
 
     async executeLogin(username: string, password: string) {
@@ -20,11 +24,15 @@ export class LoginPage extends PageBase {
         await this.locators.loginButton.click();
     }
 
-    async changeLanguage(language: '中文' | 'English' | 'Español' | '日本語'){
+    async changeLanguage(language: '中文' | 'English' | 'Español' | '日本語') {
         await this.locators.languagesButton.click();
-        await this.locators.languageList.waitFor({state: 'visible'});
-        await this.locators.languageList.getByText(language).waitFor({state: 'visible'});
-        const isEnabled = await this.locators.languageList.getByText(language).isEnabled();
+        await this.locators.languageList.waitFor({ state: 'visible' });
+        await this.locators.languageList
+            .getByText(language)
+            .waitFor({ state: 'visible' });
+        const isEnabled = await this.locators.languageList
+            .getByText(language)
+            .isEnabled();
         if (isEnabled) {
             await this.locators.languageList.getByText(language).click();
         }
