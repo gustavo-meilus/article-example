@@ -11,7 +11,7 @@ import {
 import { OrderTableComponent } from './order-table/order-table.component';
 import { ProgressCardComponent } from './progress-card/progress-card.component';
 import { StatsChartComponent } from './stats-chart/stats-chart.component';
-import { TodoListComponent } from './todo/todo-list.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 import { WeekChartComponent } from './week-chart/week-chart.component';
 
 export class DashboardPage extends PageBase {
