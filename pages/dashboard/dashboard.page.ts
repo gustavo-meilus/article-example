@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { PageBase } from '../shared/page.base';
+import { PageBase } from '../base/page.base';
 import { AreasChartComponent } from './areas-chart/areas-chart.component';
 import { BudgetChartComponent } from './budget-chart/budget-chart.component';
 import {

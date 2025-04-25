@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { RadarChartBase } from '../../common/components/radar-chart.base';
+import { RadarChartBase } from '../../common/base/radar-chart.base';
 import {
     Locators,
     locators,

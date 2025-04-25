@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { PageBase } from '../../shared/page.base';
+import { PageBase } from '../../base/page.base';
 
 /**
  * Interface defining the contract for component base operations.

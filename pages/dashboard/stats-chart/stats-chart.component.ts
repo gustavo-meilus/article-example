@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { DonutChartBase } from '../../common/components/donut-chart.base';
+import { DonutChartBase } from '../../common/base/donut-chart.base';
 import {
     Locators,
     locators,

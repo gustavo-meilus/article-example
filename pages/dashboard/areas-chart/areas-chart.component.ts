@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { LineChartBase } from '../../common/components/line-chart.base';
+import { LineChartBase } from '../../common/base/line-chart.base';
 import {
     Locators,
     locators,

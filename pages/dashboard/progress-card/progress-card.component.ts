@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { ComponentBase } from '../../common/components/component.base';
+import { ComponentBase } from '../../common/base/component.base';
 import {
     Locators,
     locators,
