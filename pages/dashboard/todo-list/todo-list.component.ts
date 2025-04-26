@@ -1,15 +1,10 @@
 import { Locator, Page } from '@playwright/test';
 import { ListBase } from '../../common/base/list.base';
-import {
-    Locators,
-    locators,
-    OnLoadLocators,
-    onLoadLocators,
-} from './todo-list.locators';
+import { locators, onLoadLocators } from './todo-list.locators';
 
 export class TodoListComponent extends ListBase {
-    readonly onLoadLocators: OnLoadLocators;
-    readonly locators: Locators;
+    readonly onLoadLocators: Record<string, Locator>;
+    readonly locators: Record<string, Locator>;
     readonly container: Locator;
 
     constructor(page: Page) {

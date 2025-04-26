@@ -26,9 +26,9 @@ export const onLoadLocators = (container: Locator) => ({
     donateLink: container.getByRole('link', { name: 'Donate' }),
 });
 
+// Additional locators that might appear after interactions
 export const locators = (container: Locator) => ({
     ...onLoadLocators(container),
-    menubar: container.getByRole('menubar'),
 });
 
 export type OnLoadLocators = ReturnType<typeof onLoadLocators>;

@@ -1,15 +1,10 @@
 import { Locator, Page } from '@playwright/test';
 import { DonutChartBase } from '../../common/base/donut-chart.base';
-import {
-    Locators,
-    locators,
-    OnLoadLocators,
-    onLoadLocators,
-} from './stats-chart.locators';
+import { locators, onLoadLocators } from './stats-chart.locators';
 
 export class StatsChartComponent extends DonutChartBase {
-    readonly onLoadLocators: OnLoadLocators;
-    readonly locators: Locators;
+    readonly onLoadLocators: Record<string, Locator>;
+    readonly locators: Record<string, Locator>;
     readonly container: Locator;
 
     constructor(page: Page) {

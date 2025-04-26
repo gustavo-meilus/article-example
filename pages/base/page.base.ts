@@ -1,4 +1,5 @@
 import { Locator, Page } from '@playwright/test';
+import { IComponentBase } from '../common/base/component.base';
 
 /**
  * Interface defining the contract for page base operations.

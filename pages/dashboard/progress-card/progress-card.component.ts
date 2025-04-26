@@ -1,16 +1,11 @@
 import { Locator, Page } from '@playwright/test';
 import { ComponentBase } from '../../common/base/component.base';
-import {
-    Locators,
-    locators,
-    OnLoadLocators,
-    onLoadLocators,
-} from './progress-card.locators';
+import { locators, onLoadLocators } from './progress-card.locators';
 
 export class ProgressCardComponent extends ComponentBase {
     readonly url = './vue-element-admin/#';
-    readonly onLoadLocators: OnLoadLocators;
-    readonly locators: Locators;
+    readonly onLoadLocators: Record<string, Locator>;
+    readonly locators: Record<string, Locator>;
     readonly container: Locator;
 
     constructor(page: Page) {

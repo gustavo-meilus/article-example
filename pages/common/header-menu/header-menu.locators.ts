@@ -1,25 +1,20 @@
 import { Locator } from '@playwright/test';
 
 export const onLoadLocators = (container: Locator) => ({
-    breadcrumbNav: container.getByRole('navigation', { name: 'Breadcrumb' }),
-    breadcrumbDashboardLink: container.getByRole('link', { name: 'Dashboard' }),
-    searchInput: container.getByRole('textbox', { name: 'Search' }),
-    hamburgerButton: container
-        .getByRole('button')
-        .filter({ hasText: '' })
-        .first(),
-    screenfullButton: container.getByRole('button').nth(1),
-    sizeSelectButton: container.getByRole('button').nth(2),
-    languageButton: container.getByRole('button').nth(3),
-    avatarButton: container.getByRole('button').filter({ hasText: '' }).last(),
+    hamburgerContainer: container.locator('#hamburger-container'),
+    breadcrumbNav: container.getByLabel('Breadcrumb'),
+    rightMenu: container.locator('.right-menu'),
+    searchButton: container.locator('#header-search'),
+    screenFullButton: container.locator('#screenfull'),
+    sizeSelectButton: container.locator('#size-select'),
+    languageButton: container.locator('.international'),
+    accountButton: container.locator('.avatar-container'),
 });
 
+// Additional locators that might appear after interactions
 export const locators = (container: Locator) => ({
     ...onLoadLocators(container),
-    // Additional locators that might appear after interactions
-    searchDropdown: container.getByRole('listbox'),
-    languageDropdown: container.getByRole('list'),
-    userDropdown: container.getByRole('menu'),
+    accountDropdown: container.locator('#dropdown-menu-193'),
 });
 
 export type OnLoadLocators = ReturnType<typeof onLoadLocators>;

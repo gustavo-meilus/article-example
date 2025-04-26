@@ -1,15 +1,10 @@
 import { Locator, Page } from '@playwright/test';
 import { LineChartBase } from '../../common/base/line-chart.base';
-import {
-    Locators,
-    locators,
-    OnLoadLocators,
-    onLoadLocators,
-} from './areas-chart.locators';
+import { locators, onLoadLocators } from './areas-chart.locators';
 
 export class AreasChartComponent extends LineChartBase {
-    readonly onLoadLocators: OnLoadLocators;
-    readonly locators: Locators;
+    readonly onLoadLocators: Record<string, Locator>;
+    readonly locators: Record<string, Locator>;
     readonly container: Locator;
 
     constructor(page: Page) {

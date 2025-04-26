@@ -1,15 +1,10 @@
 import { Locator, Page } from '@playwright/test';
 import { BarChartBase } from '../../common/base/bar-chart.base';
-import {
-    Locators,
-    locators,
-    OnLoadLocators,
-    onLoadLocators,
-} from './week-chart.locators';
+import { locators, onLoadLocators } from './week-chart.locators';
 
 export class WeekChartComponent extends BarChartBase {
-    readonly onLoadLocators: OnLoadLocators;
-    readonly locators: Locators;
+    readonly onLoadLocators: Record<string, Locator>;
+    readonly locators: Record<string, Locator>;
     readonly container: Locator;
 
     constructor(page: Page) {

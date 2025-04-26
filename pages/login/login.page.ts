@@ -1,16 +1,11 @@
-import { Page } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import { PageBase } from '../base/page.base';
-import {
-    Locators,
-    locators,
-    OnLoadLocators,
-    onLoadLocators,
-} from './login.locators';
+import { locators, onLoadLocators } from './login.locators';
 
 export class LoginPage extends PageBase {
     readonly url = './vue-element-admin/#/login';
-    readonly onLoadLocators: OnLoadLocators;
-    readonly locators: Locators;
+    readonly onLoadLocators: Record<string, Locator>;
+    readonly locators: Record<string, Locator>;
 
     constructor(page: Page) {
         super(page);

@@ -1,15 +1,10 @@
 import { Locator, Page } from '@playwright/test';
 import { RadarChartBase } from '../../common/base/radar-chart.base';
-import {
-    Locators,
-    locators,
-    OnLoadLocators,
-    onLoadLocators,
-} from './budget-chart.locators';
+import { locators, onLoadLocators } from './budget-chart.locators';
 
 export class BudgetChartComponent extends RadarChartBase {
-    readonly onLoadLocators: OnLoadLocators;
-    readonly locators: Locators;
+    readonly onLoadLocators: Record<string, Locator>;
+    readonly locators: Record<string, Locator>;
     readonly container: Locator;
 
     constructor(page: Page) {

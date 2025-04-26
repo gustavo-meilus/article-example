@@ -8,8 +8,8 @@ type Fixtures = {
 };
 
 export const test = base.extend<Fixtures>({
-    app: async ({ page }, use) => {
-        const manager = pageManager(page);
+    app: async ({ page, context }, use) => {
+        const manager = pageManager(page, context);
         await use(manager);
     },
 });
