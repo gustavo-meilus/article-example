@@ -16,6 +16,3 @@ export const locators = (container: Locator) => ({
     ...onLoadLocators(container),
     accountDropdown: container.locator('#dropdown-menu-193'),
 });
-
-export type OnLoadLocators = ReturnType<typeof onLoadLocators>;
-export type Locators = ReturnType<typeof locators>;

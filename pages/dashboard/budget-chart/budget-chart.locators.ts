@@ -8,6 +8,3 @@ export const onLoadLocators = (container: Locator) => ({
 export const locators = (container: Locator) => ({
     ...onLoadLocators(container),
 });
-
-export type OnLoadLocators = ReturnType<typeof onLoadLocators>;
-export type Locators = ReturnType<typeof locators>;

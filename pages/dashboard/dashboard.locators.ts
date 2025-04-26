@@ -8,6 +8,3 @@ export const onLoadLocators = (page: Page) => ({
 export const locators = (page: Page) => ({
     ...onLoadLocators(page),
 });
-
-export type OnLoadLocators = ReturnType<typeof onLoadLocators>;
-export type Locators = ReturnType<typeof locators>;
