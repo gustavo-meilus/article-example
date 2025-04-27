@@ -1,4 +1,4 @@
-import { expect, test, tags } from '../../fixtures';
+import { expect, tags, test } from '../../../fixtures';
 
 test.beforeEach(async ({ app }) => {
     app.context.clearCookies();

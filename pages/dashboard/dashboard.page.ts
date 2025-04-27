@@ -1,5 +1,6 @@
-import { Page, Locator } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 import { PageBase } from '../base/page.base';
+import { IComponentBase } from '../common/base/component.base';
 import { AreasChartComponent } from './areas-chart/areas-chart.component';
 import { BudgetChartComponent } from './budget-chart/budget-chart.component';
 import { locators, onLoadLocators } from './dashboard.locators';
@@ -25,9 +26,8 @@ export class DashboardPage extends PageBase {
 
     constructor(page: Page) {
         super(page);
-        this.onLoadLocators = onLoadLocators(page);
 
-        // Components
+        // Initialize components
         this.statsChart = new StatsChartComponent(page);
         this.budgetChart = new BudgetChartComponent(page);
         this.areasChart = new AreasChartComponent(page);
@@ -36,26 +36,20 @@ export class DashboardPage extends PageBase {
         this.todoList = new TodoListComponent(page);
         this.progressCard = new ProgressCardComponent(page);
 
-        // Merge locators to dashboard
-        this.locators = {
-            ...locators(page),
-            ...this.statsChart.locators,
-            ...this.budgetChart.locators,
-            ...this.areasChart.locators,
-            ...this.weekChart.locators,
-            ...this.orderTable.locators,
-            ...this.todoList.locators,
-            ...this.progressCard.locators,
-        };
-        this.onLoadLocators = {
-            ...onLoadLocators(page),
-            ...this.statsChart.onLoadLocators,
-            ...this.budgetChart.onLoadLocators,
-            ...this.areasChart.onLoadLocators,
-            ...this.weekChart.onLoadLocators,
-            ...this.orderTable.onLoadLocators,
-            ...this.todoList.onLoadLocators,
-            ...this.progressCard.onLoadLocators,
-        };
+        // Merge all locators
+        this.locators = this.mergeLocators(locators(page));
+        this.onLoadLocators = this.mergeOnLoadLocators(onLoadLocators(page));
+    }
+
+    protected getComponents(): IComponentBase[] {
+        return [
+            this.statsChart,
+            this.budgetChart,
+            this.areasChart,
+            this.weekChart,
+            this.orderTable,
+            this.todoList,
+            this.progressCard,
+        ];
     }
 }

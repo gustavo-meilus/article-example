@@ -38,6 +38,42 @@ export abstract class PageBase implements IPageBase {
     }
 
     /**
+     * Override this method to provide the components that contain locators to be merged
+     * @returns Array of components that implement IComponentBase
+     */
+    protected getComponents(): IComponentBase[] {
+        return [];
+    }
+
+    /**
+     * Merges locators from base locators and all components
+     * @param baseLocators - The base locators to merge with component locators
+     * @returns Merged locators object
+     */
+    protected mergeLocators(
+        baseLocators: Record<string, Locator>,
+    ): Record<string, Locator> {
+        return this.getComponents().reduce(
+            (acc, component) => ({ ...acc, ...component.locators }),
+            baseLocators,
+        );
+    }
+
+    /**
+     * Merges onLoadLocators from base locators and all components
+     * @param baseLocators - The base onLoadLocators to merge with component onLoadLocators
+     * @returns Merged onLoadLocators object
+     */
+    protected mergeOnLoadLocators(
+        baseLocators: Record<string, Locator>,
+    ): Record<string, Locator> {
+        return this.getComponents().reduce(
+            (acc, component) => ({ ...acc, ...component.onLoadLocators }),
+            baseLocators,
+        );
+    }
+
+    /**
      * Sets a dynamic path segment for the URL.
      * @param path - Path segment to append to the base URL
      */
