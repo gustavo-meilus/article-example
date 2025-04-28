@@ -1,10 +1,10 @@
-import { test as base, Page } from '@playwright/test';
-import { pageManager, PageManager } from './pages';
+import { test as base } from '@playwright/test';
 import * as path from 'path';
+import { pageManager } from './pages';
 
 // Declare the types of your fixtures.
 type Fixtures = {
-    app: PageManager;
+    app: ReturnType<typeof pageManager>;
 };
 
 export const test = base.extend<Fixtures>({

@@ -41,7 +41,7 @@ export abstract class PageBase implements IPageBase {
      * Override this method to provide the components that contain locators to be merged
      * @returns Array of components that implement IComponentBase
      */
-    protected getComponents(): IComponentBase[] {
+    protected attachedComponents(): IComponentBase[] {
         return [];
     }
 
@@ -53,7 +53,7 @@ export abstract class PageBase implements IPageBase {
     protected mergeLocators(
         baseLocators: Record<string, Locator>,
     ): Record<string, Locator> {
-        return this.getComponents().reduce(
+        return this.attachedComponents().reduce(
             (acc, component) => ({ ...acc, ...component.locators }),
             baseLocators,
         );
@@ -67,7 +67,7 @@ export abstract class PageBase implements IPageBase {
     protected mergeOnLoadLocators(
         baseLocators: Record<string, Locator>,
     ): Record<string, Locator> {
-        return this.getComponents().reduce(
+        return this.attachedComponents().reduce(
             (acc, component) => ({ ...acc, ...component.onLoadLocators }),
             baseLocators,
         );

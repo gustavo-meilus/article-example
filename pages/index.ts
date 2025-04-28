@@ -12,5 +12,3 @@ export const pageManager = (page: Page, context: BrowserContext) => ({
     leftMenu: new LeftMenuPage(page),
     headerMenu: new HeaderMenuPage(page),
 });
-
-export type PageManager = ReturnType<typeof pageManager>;

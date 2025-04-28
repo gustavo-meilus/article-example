@@ -41,7 +41,7 @@ export class DashboardPage extends PageBase {
         this.onLoadLocators = this.mergeOnLoadLocators(onLoadLocators(page));
     }
 
-    protected getComponents(): IComponentBase[] {
+    protected attachedComponents(): IComponentBase[] {
         return [
             this.statsChart,
             this.budgetChart,
