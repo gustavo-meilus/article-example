@@ -14,6 +14,8 @@ Branch semantics: branch-local proposed/test canon; not released/default-branch 
 [GHG-OV-001] CANON: The civic Water Office controls public water distribution.
 [GHG-OV-002] CANON: Neighborhood troughs are the normal distribution method.
 [GHG-OV-003] CANON: Affluent private estates sometimes maintain licensed storage tanks.
+[GHG-OV-004] CANON: Licensed private storage tanks pay a small Water Office maintenance levy.
 
 ## Canon / Decision State
 [GHG-DEC-001] CANON-STATE RECORD: No levy on private water tanks is canon at initialization.
+[GHG-DEC-002] CANON DECISION: GHG-OV-004 was explicitly promoted during WORLD-STEWARD-ACCEPTANCE on the isolated test branch only. GHG-CONST-005 remains UNDEFINED.
